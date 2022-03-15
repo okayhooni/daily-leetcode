@@ -1,5 +1,5 @@
 """
-https://leetcode.com/problems/simplify-path/submissions/
+https://leetcode.com/problems/simplify-path
 """
 
 
