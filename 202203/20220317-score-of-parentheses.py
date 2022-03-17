@@ -4,13 +4,11 @@ https://leetcode.com/problems/score-of-parentheses
 
 
 class Solution:
-    """
-    모든 풀이 공통
-
-    시간 복잡도: O(n)
-    공간 복잡도: O(n)
-    """
     def scoreOfParentheses(self, s: str) -> int:
+        """
+        시간 복잡도: O(n)
+        공간 복잡도: O(n)
+        """
         score_by_level_stack = []
         final_score = 0
 
@@ -28,6 +26,9 @@ class Solution:
 
     def scoreOfParentheses_24ms_sample(self, S):
         """
+        시간 복잡도: O(n)
+        공간 복잡도: O(n)
+
         2 * multiplier 조건에 대한 처리: cur += stack.pop() + max(cur, 1)
         """
         stack, cur = [], 0
@@ -39,8 +40,26 @@ class Solution:
                 cur += stack.pop() + max(cur, 1)
         return cur
 
+    def scoreOfParentheses_21ms_sample(self, s: str) -> int:
+        """
+        시간 복잡도: O(n)
+        공간 복잡도: O(1)
+        """
+        points = 1
+        total = 0
+        for i, b in enumerate(s):
+            if b == '(':
+                points *= 2
+            elif s[i - 1:i + 1] == '()':
+                total = total + points // 2
+                points //= 2
+            elif b == ')':
+                points //= 2
+        return total
+
 
 if __name__ == '__main__':
     sol = Solution()
     print(sol.scoreOfParentheses('((()))'))
     print(sol.scoreOfParentheses_24ms_sample('((()))'))
+    print(sol.scoreOfParentheses_21ms_sample('((()))'))
