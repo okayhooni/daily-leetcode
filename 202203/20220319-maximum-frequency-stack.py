@@ -16,16 +16,57 @@ class FreqStack:
         self.pushed_idx = 0
 
     def push(self, val: int) -> None:
+        """
+        시간 복잡도: O(log(n))
+        공간 복잡도: O(n)
+        """
         self.counter[val] += 1
         # heappush(self.heap, (-self.counter[val], -len(self.heap), val))
         heappush(self.heap, (-self.counter[val], -self.pushed_idx, val))
         self.pushed_idx += 1
 
     def pop(self) -> int:
+        """
+        시간 복잡도: O(1)
+        """
         # print(self.heap)
         *_, val = heappop(self.heap)
         self.counter[val] -= 1
         # print(val)
+        return val
+
+
+class FreqStackWithNoHeap:
+    """
+    REF: 272ms submission
+    힙 구조 유지가 필요없으므로 더 효율적인 push 가능
+    """
+
+    def __init__(self):
+        self.counter = Counter()
+        self.stack_by_freq_stack = []
+
+    def push(self, val: int) -> None:
+        """
+        시간 복잡도: O(1)
+        공간 복잡도: O(n)
+        """
+        # 하나씩만 push 되므로
+        if len(self.stack_by_freq_stack) == self.counter[val]:
+            self.stack_by_freq_stack.append([])
+
+        self.stack_by_freq_stack[self.counter[val]].append(val)
+        self.counter[val] += 1
+
+    def pop(self) -> int:
+        """
+        시간 복잡도: O(1)
+        """
+        val = self.stack_by_freq_stack[-1].pop()
+        if not self.stack_by_freq_stack[-1]:
+            self.stack_by_freq_stack.pop()
+
+        self.counter[val] -= 1
         return val
 
 
