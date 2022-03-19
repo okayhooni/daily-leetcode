@@ -22,10 +22,10 @@ class FreqStack:
         self.pushed_idx += 1
 
     def pop(self) -> int:
-        print(self.heap)
+        # print(self.heap)
         *_, val = heappop(self.heap)
         self.counter[val] -= 1
-        print(val)
+        # print(val)
         return val
 
 
