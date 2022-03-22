@@ -25,8 +25,8 @@ class Solution:
         시간 복잡도: O(1)
         공간 복잡도: O(n)
         """
-        diff = k - n
-        quotient = diff // 25
+        diff = k - n  # sum(1, 1, 1, 1, 1, 1, ~, 1) = n
+        quotient = diff // 25  # = (26 - 1)
         reminder = diff % 25
         ans = "a" * (n-quotient-1) + chr(97+reminder) + "z" * quotient if reminder \
             else "a" * (n-quotient) + "z" * quotient
