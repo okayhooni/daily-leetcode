@@ -23,8 +23,8 @@ class Solution:
                     pass
                 else:
                     res_str += char
-                finally:
-                    continue
+
+                continue  # Python version 3.6 does not support 'continue' inside 'finally' clause
 
             res_str += char
             if char == begin_char:
@@ -54,3 +54,9 @@ class Solution:
             char_seq[remaining_open_paren_idx] = ''
 
         return ''.join(char_seq)
+
+
+if __name__ == '__main__':
+    sol = Solution()
+    print(sol.minRemoveToMakeValid1('lee(t(c)o)de)'))
+    print(sol.minRemoveToMakeValid2('lee(t(c)o)de)'))
