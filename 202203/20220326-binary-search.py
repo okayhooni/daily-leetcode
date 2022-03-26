@@ -28,7 +28,7 @@ class Solution:
         return -1
 
     def search_with_recursion(self, nums: List[int], target: int) -> int:
-        def binary_search(left, right):
+        def binary_search(left: int, right: int):
             if left > right:
                 return -1
 
