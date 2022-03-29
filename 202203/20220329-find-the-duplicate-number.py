@@ -48,5 +48,5 @@ class Solution:
         while tortoise != hare:
             tortoise = nums[tortoise]
             hare = nums[hare]
-
+        # m = (int) * l - k
         return hare
