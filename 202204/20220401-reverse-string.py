@@ -5,15 +5,20 @@ from typing import List
 
 
 class Solution:
+    """
+    Do not return anything, modify s in-place instead.
+    """
     def reverseString(self, s: List[str]) -> None:
         """
-        Do not return anything, modify s in-place instead.
+        시간 복잡도: O(n)
+        공간 복잡도: O(1)
         """
         s.reverse()
 
     def reverseStringTwoPointer(self, s: List[str]) -> None:
         """
-        Do not return anything, modify s in-place instead.
+        시간 복잡도: O(n)
+        공간 복잡도: O(1)
         """
 
         left, right = 0, len(s) - 1
