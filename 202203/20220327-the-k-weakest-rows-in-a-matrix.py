@@ -18,7 +18,7 @@ class Solution:
 
     def kWeakestRows_96ms_sample(self, mat: List[List[int]], k: int) -> List[int]:
         """
-        heappush 에 시간복잡도 O(log(n)) 소요되므로, 다른 풀이에 비해 시간복잡도 상의 이득은 미미
+        heappush() 및 heappop()에 시간복잡도 O(log(n)) 소요되므로, 다른 풀이에 비해 시간복잡도 상의 이득은 미미
         """
         heap = []
         heapq.heapify(heap)

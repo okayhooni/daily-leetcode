@@ -27,7 +27,7 @@ class FreqStack:
 
     def pop(self) -> int:
         """
-        시간 복잡도: O(1)
+        시간 복잡도: O(log(n))
         """
         # print(self.heap)
         *_, val = heappop(self.heap)
