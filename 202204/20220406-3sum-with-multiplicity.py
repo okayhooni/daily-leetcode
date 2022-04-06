@@ -1,8 +1,19 @@
+"""
+https://leetcode.com/problems/3sum-with-multiplicity/
+
+cf) https://leetcode.com/problems/3sum/
+"""
 from typing import List
 from collections import Counter
 
 
 class Solution:
+    """
+    m = DISTINCT COUNT OF N
+
+    시간 복잡도: O(n + m*log(m) + m^2) = O(m^2)
+    공간 복잡도: O(m)
+    """
     def threeSumMulti(self, arr: List[int], target: int) -> int:
         distinct_arr = sorted(set(arr))
         counter = Counter(arr)
