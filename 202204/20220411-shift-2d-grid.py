@@ -5,6 +5,12 @@ from typing import List
 
 
 class Solution:
+    """
+    모든 풀이 공통
+
+    시간 복잡도: O(n)
+    공간 복잡도: O(n)
+    """
     def shiftGrid(self, grid: List[List[int]], k: int) -> List[List[int]]:
         width, height = len(grid[0]), len(grid)
 
