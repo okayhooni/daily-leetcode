@@ -28,7 +28,7 @@ class Solution:
             if node.right:
                 _convert_to_gst(node.right)
 
-            node.val += accumulated
+            node.val += accumulated  # 중위 순회
             accumulated = node.val
 
             if node.left:
