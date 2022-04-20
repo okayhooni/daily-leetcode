@@ -62,6 +62,36 @@ class Solution:
             prev_node.val, target_node.val = target_node.val, prev_node.val
 
 
+class AnotherSolution:
+    """
+    REF: https://codlingual.tistory.com/188
+    """
+    def recoverTree(self, root: TreeNode) -> None:
+        """
+        Do not return anything, modify root in-place instead.
+        """
+        result, swap = self.inorder(root, result=[], swap=[])
+        # swap의 첫 번째 값과 마지막 값을 서로 교환
+        swap[0].val, swap[-1].val = swap[-1].val, swap[0].val
+
+    # inorder traversal
+    def inorder(self, root, result, swap):
+        node = root
+        if node:
+            # 왼쪽 자식
+            if node.left:
+                result, swap = self.inorder(node.left, result, swap)
+            # 대소관계 맞지 않으면 swap에 저장
+            if result and result[-1].val >= node.val:
+                swap += [result[-1], node]
+            # 루트
+            result.append(node)
+            # 오른쪽 자식
+            if node.right:
+                result, swap = self.inorder(node.right, result, swap)
+        return result, swap
+
+
 if __name__ == '__main__':
     tr = TreeNode(
         3,
