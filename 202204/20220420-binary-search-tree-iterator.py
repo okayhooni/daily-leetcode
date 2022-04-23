@@ -36,7 +36,7 @@ class BSTIterator:
 
     def next(self) -> Optional[int]:
         """
-        시간 복잡도: O(1)
+        시간 복잡도: O(h)
         공간 복잡도: O(h)
         """
         if self.tmp_next is not None:
