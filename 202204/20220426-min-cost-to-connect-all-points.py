@@ -4,6 +4,8 @@ https://leetcode.com/problems/min-cost-to-connect-all-points/
 - Connect each pair of points with a weighted edge, the weight being the manhattan distance between those points.
 - The problem is now the cost of minimum spanning tree in graph with above edges.
 
+> Topic: Minimum Spanning Tree
+
 REF: https://www.tutorialspoint.com/program-to-find-minimum-cost-to-connect-all-points-in-python
 """
 from typing import List, Tuple
@@ -11,6 +13,10 @@ import heapq
 
 
 class Solution:
+    """
+    시간 복잡도: O(n * log(n))
+    공간 복잡도: O(n)
+    """
     def minCostConnectPoints(self, points: List[List[int]]) -> int:
         heap: List[Tuple[int, int]] = [(0, 0)]  # [(멘하탄 거리, 포인트 인덱스)]
         undiscovered_points_idx_set = set(range(len(points)))
