@@ -13,6 +13,9 @@ from collections import deque
 
 
 class MyStackRevised:
+    """
+    > Follow-up: Can you implement the stack using only one queue?
+    """
     def __init__(self):
         self.queue = deque()
 
@@ -44,7 +47,6 @@ class MyStackRevised:
 
 
 class MyStackFirst:
-
     def __init__(self):
         self.queue = deque()
 
@@ -89,6 +91,10 @@ class MyStackFirst:
 
 
 class MyQueue:
+    """
+    > Follow-up: Can you implement the queue such that each operation is amortized O(1) time complexity?
+    In other words, performing n operations will take overall O(n) time even if one of those operations may take longer.
+    """
     def __init__(self):
         self.input_stack = []
         self.output_stack = []
@@ -101,17 +107,29 @@ class MyQueue:
             self.output_stack.append(self.input_stack.pop())
 
     def push(self, x: int) -> None:
+        """
+        시간 복잡도: O(1)
+        """
         self.input_stack.append(x)
 
     def pop(self) -> int:
+        """
+        시간 복잡도: O(1) ~ O(n)
+        """
         self._convert_to_fifo_stack()
         return self.output_stack.pop()
 
     def peek(self) -> int:
+        """
+        시간 복잡도: O(1) ~ O(n)
+        """
         self._convert_to_fifo_stack()
         return self.output_stack[-1]
 
     def empty(self) -> bool:
+        """
+        시간 복잡도: O(1)
+        """
         return 0 == len(self.input_stack) == len(self.output_stack)
 
 # Your MyQueue object will be instantiated and called as such:
