@@ -9,8 +9,8 @@ class Solution:
         """
         > Backward Pointers [= Reverse Pointers]
 
-        시간 복잡도: O(n) - all the numbers on the "stk" list, can be popped at most once!
-        공간 복잡도: O(n) - "stk" can be list with size = n
+        시간 복잡도: O(n) - all the numbers on the "stk" stack list, can be popped at most once!
+        공간 복잡도: O(n) - "stk" stack can be list with size = n
         """
         stk, n_last = [], float('-inf')
         for num in reversed(nums):  # nums[::-1]:
@@ -29,6 +29,34 @@ class Solution:
             if not stk or num < stk[-1]:
                 stk.append(num)
             print(f'num(=n_mid): {num} / stk: {stk} / n_last: {n_last}')
+
+        return False
+
+    def find132patternWithArgSpaceTrick(self, nums: List[int]) -> bool:
+        """
+        > Arg Space Trick
+        > Using nums itself as the stack (bottom on the right end)
+
+        시간 복잡도: O(n) - all the numbers on the "stk" list, can be popped at most once!
+        공간 복잡도: O(n) - "stk" can be list with size = n
+        """
+        n_last = float('-inf')
+        idx = len(nums) - 1
+        in_place_stack_idx = len(nums)
+
+        while 0 <= idx:
+            print(f'nums[idx:{idx}]: {nums[idx]} / nums: {nums} / in_place_stack_idx: {in_place_stack_idx}')
+            if nums[idx] < n_last:
+                return True
+
+            while in_place_stack_idx < len(nums) and nums[idx] > nums[in_place_stack_idx]:
+                n_last = nums[in_place_stack_idx]
+                print(f'n_last = {n_last} = nums[in_place_stack_idx:{in_place_stack_idx}]')
+                in_place_stack_idx += 1  # pop
+
+            in_place_stack_idx -= 1  # push
+            nums[in_place_stack_idx] = nums[idx]
+            idx -= 1
 
         return False
 
@@ -75,13 +103,13 @@ class Solution:
 
 if __name__ == '__main__':
     # test_case = [1, 3, 5, 7, 4]
-    test_case = [25, 27, 21, 23, 17, 19, 13, 15, 9, 11, 5, 7, 1, 3, 4]
-    print(Solution().find132patternWithWindow(test_case))
+    # test_case = [25, 27, 21, 23, 17, 19, 13, 15, 9, 11, 5, 7, 1, 3, 4]
+    # print(Solution().find132patternWithWindow(test_case))
     # test_case = [-2, 1, 1]
     # test_case = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
     # test_case = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     # test_case = [1, 0, 1, -4, -3, -2]
-    # test_case = [10, -2, 2, 0, 1, -2, -5, -4, -3, -1]
+    test_case = [10, -2, 2, 0, 1, -2, -5, -4, -3, -1]
     # test_case = [3, 1, 4, 2]
     # test_case = [3, 1, 4, 2, 2, 2]
     # test_case = [3, 1, 4, 3, 2, 2, 2]
@@ -94,3 +122,4 @@ if __name__ == '__main__':
     sol = Solution()
     # print(sol.find132pattern(test_case))
     print(sol.find132pattern(test_case))
+    print(Solution().find132patternWithArgSpaceTrick(test_case))
