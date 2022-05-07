@@ -22,6 +22,16 @@ class MyStackRevised:
     def push(self, x: int) -> None:
         """
         시간 복잡도: O(n)
+
+        queue: [1]
+        queue: [1, 2] -> [2, 1]
+        queue: [2, 1, 3] -> [3, 2, 1]
+        queue: [3, 2, 1, 4] -> [4, 3, 2, 1]
+        queue: [4, 3, 2, 1, 5] -> [5, 4, 3, 2, 1]
+
+        # self.queue is "ALWAYS" ORDERED "LIFO" LIKE STACK
+
+        [CONTRAST]: queue: [1, 2, 3, 4, 5] -> [5, 1, 2, 3, 4]
         """
         self.queue.append(x)
         for _ in range(len(self.queue) - 1):

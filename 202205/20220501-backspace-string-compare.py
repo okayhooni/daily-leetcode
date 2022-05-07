@@ -29,7 +29,7 @@ class Solution:
         """
         Follow up: Can you solve it in O(n) time and O(1) space?
 
-        Backward Pointers
+        > Backward Pointers [= Reverse Pointers]
 
         시간 복잡도: O(n)
         공간 복잡도: O(1)
