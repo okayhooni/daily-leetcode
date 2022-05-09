@@ -49,7 +49,6 @@ class Solution:
 
         result = []
         dfs(0, "")
-        # print('cnt:', cnt)  # cnt: 13 / cnt: 40
         return result
 
 
