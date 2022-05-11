@@ -18,13 +18,21 @@ https://leetcode.com/problems/count-sorted-vowel-strings/
 class Solution:
     def countVowelStrings(self, n: int) -> int:
         """
-        Combination (n+4, 4)
+        Mathematical solution
 
-        n + 5 개 칸 사이의 n + 4 개 칸막이 중에 4개 칸막이 위치 선택 경우의 수
+        시간 복잡도: O(1)
+        공간 복잡도: O(1)
+
+        Combination (n+4, 4)
+        : (n + 5) 개 칸 사이의 (n + 4) 개 칸막이 중에 4개 칸막이 위치 선택 경우의 수
         """
         return (n + 4) * (n + 3) * (n + 2) * (n + 1) // 24
 
     def countVowelStringsBruteForceDFS(self, n: int) -> int:
+        """
+        시간 복잡도: O(n ** 4)
+        공간 복잡도: O(n) ~ maximum call stack depth
+        """
         vowels = ['a', 'e', 'i', 'o', 'u']
         count = 0
 
@@ -43,6 +51,10 @@ class Solution:
         return count
 
     def countVowelStringsMemoizeDP(self, n: int) -> int:
+        """
+        시간 복잡도: O(n)
+        공간 복잡도: O(n)
+        """
         DP_MAP = {
             (vowel_idx, 1): 5 - vowel_idx
             for vowel_idx in range(5)
@@ -65,6 +77,10 @@ class Solution:
         return dfs(start_vowel_idx=0, remain_n=n)
 
     def countVowelStringsTabulationDP(self, n: int) -> int:
+        """
+        시간 복잡도: O(n)
+        공간 복잡도: O(n)
+        """
         dp = [[5, 4, 3, 2, 1]]
         if n == 1:
             return 5
@@ -77,6 +93,10 @@ class Solution:
         return sum(dp[-1])
 
     def countVowelStringsTabulationDP2(self, n: int) -> int:
+        """
+        시간 복잡도: O(n)
+        공간 복잡도: O(n)
+        """
         # vows = ["a", "e", "i", "o", "u"]
         dp = [[]]
         dp[0] = [5, 4, 3, 2, 1]
@@ -87,7 +107,24 @@ class Solution:
                 dp[i][j] = dp[i][j + 1] + dp[i - 1][j]
         return dp[n - 1][0]
 
+    def countVowelStringsTabulationDP3(self, n: int) -> int:
+        """
+        Memory efficient solution with tabulation
+
+        시간 복잡도: O(n)
+        공간 복잡도: O(1)
+        """
+        arr = [1 for _ in range(5)]
+        for _ in range(1, n):
+            for i in range(1, 5):
+                arr[i] += arr[i - 1]
+        return sum(arr)
+
     def countVowelStringsWithoutDP(self, n: int) -> int:
+        """
+        시간 복잡도: O(n ** 4)
+        공간 복잡도: O(n) ~ maximum call stack depth
+        """
         def dfs(start_vowel_idx, remain_n):
             if remain_n == 1:
                 return 5 - start_vowel_idx
