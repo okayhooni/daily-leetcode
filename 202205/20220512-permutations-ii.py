@@ -48,6 +48,35 @@ class Solution:
         dfs(nums, [])
         return list(all_unique_sets)
 
+    def permuteUniqueWithVisitedSet(self, nums: List[int]) -> List[List[int]]:
+        # nums.sort()
+        res = []
+
+        def dfs(nums, path):
+            visit = set()
+            if not nums:
+                res.append(path[:])
+                return
+            for i in range(len(nums)):
+                if nums[i] not in visit:
+                    visit.add(nums[i])
+                    dfs(nums[:i] + nums[i + 1:], path + [nums[i]])
+
+        dfs(nums, [])
+        return res
+
+    def permuteUnique42msSol(self, nums: List[int]) -> List[List[int]]:
+        result = [[]]
+        for n in nums:
+            g = []
+            for l in result:
+                for i in range(len(l) + 1):
+                    g.append(l[:i] + [n] + l[i:])
+                    if i < len(l) and l[i] == n:
+                        break  # handles duplication
+            result = g
+        return result
+
 
 if __name__ == '__main__':
     test_case = [1, 1, 2]
@@ -55,3 +84,5 @@ if __name__ == '__main__':
     print(sol.permuteUnique(test_case))
     print(sol.permuteUniqueUsingBuiltIn(test_case))
     print(sol.permuteUniqueBruteForceDFS(test_case))
+    print(sol.permuteUniqueWithVisitedSet(test_case))
+    print(sol.permuteUnique42msSol(test_case))
