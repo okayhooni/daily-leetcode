@@ -46,3 +46,11 @@ class Solution:
 
             if original_node.right:
                 stack.append((original_node.right, cloned_node.right))
+
+    def getTargetCopyWithGracefulRecursion(self, original: TreeNode, cloned: TreeNode, target: TreeNode) -> TreeNode:
+        if original is None:
+            return
+        if original is target:
+            return cloned
+        return self.getTargetCopyWithGracefulRecursion(original.left, cloned.left, target) \
+            or self.getTargetCopyWithGracefulRecursion(original.right, cloned.right, target)
