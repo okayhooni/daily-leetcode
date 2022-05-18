@@ -69,13 +69,13 @@ class Solution:
         공간 복잡도: O(n)
         """
 
-        def dfs(idx: int):
+        def dfs(idx: int, cluster_idx_list: List[int]):
             visited_idx.add(idx)
-            cur_cluster_idx_list.append(idx)
+            cluster_idx_list.append(idx)
 
             for j in graph[idx]:
                 if j not in visited_idx:
-                    dfs(j)
+                    dfs(j, cluster_idx_list)
 
         # graph = [[] for _ in range(len(s))]
         # for i, j in pairs:
@@ -92,7 +92,7 @@ class Solution:
         for i in range(len(s)):
             if i not in visited_idx:
                 cur_cluster_idx_list = []
-                dfs(i)
+                dfs(i, cur_cluster_idx_list)
                 # print(cur_cluster_idx_list)
                 cur_cluster_idx_list.sort()
                 cur_sorted_chars = sorted(s[idx] for idx in cur_cluster_idx_list)
@@ -180,3 +180,5 @@ if __name__ == '__main__':
     sol = Solution()
     print(sol.smallestStringWithSwaps("dcab", [[0, 3], [1, 2]]))
     print(sol.smallestStringWithSwaps("dcab", [[0, 3], [1, 2], [0, 2]]))
+    print(sol.smallestStringWithSwapsWithDFS("dcab", [[0, 3], [1, 2]]))
+    print(sol.smallestStringWithSwapsWithDFS("dcab", [[0, 3], [1, 2], [0, 2]]))
