@@ -3,6 +3,8 @@ https://leetcode.com/problems/longest-increasing-path-in-a-matrix/
 
 > Topic: Dynamic Programming
 
+Cf) https://leetcode.com/problems/number-of-islands/
+
 Ref)
 - https://dev.to/seanpgallivan/solution-longest-increasing-path-in-a-matrix-4o5f
 - https://www.geeksforgeeks.org/longest-increasing-path-matrix/
