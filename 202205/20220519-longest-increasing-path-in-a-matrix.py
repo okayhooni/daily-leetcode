@@ -8,6 +8,11 @@ Cf) https://leetcode.com/problems/number-of-islands/
 Ref)
 - https://dev.to/seanpgallivan/solution-longest-increasing-path-in-a-matrix-4o5f
 - https://www.geeksforgeeks.org/longest-increasing-path-matrix/
+
+Note: It is possible to use a bottom-up dynamic programming (DP) approach here as well,
+but since there's no convenient fixed-point bottom location,
+we'd have to use a max-heap priority queue in order to traverse M in proper bottom-up order.
+That would push the time complexity to O(N * M * log(N * M)), so the memoization code is more efficient.
 """
 from typing import List
 from functools import lru_cache, cache  # > Python 3.9
