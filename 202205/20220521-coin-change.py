@@ -101,6 +101,7 @@ class Solution:
             next_reachable = reachable
             for coin in coins:
                 next_reachable |= (reachable >> coin)
+                # bit-wise tabulation with sliding window (two-pointer) approach
 
             # print(bin(reachable), '/', bin(next_reachable))
 
