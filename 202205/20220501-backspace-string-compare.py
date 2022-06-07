@@ -1,5 +1,8 @@
 """
 https://leetcode.com/problems/backspace-string-compare/
+
+> Topic: Backward Pointers [= Reverse Pointers]
+> Follow up: Can you solve it in O(n) time and O(1) space?
 """
 
 

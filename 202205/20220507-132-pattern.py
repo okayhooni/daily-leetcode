@@ -1,5 +1,7 @@
 """
 https://leetcode.com/problems/132-pattern/
+
+> Topic: Backward Pointers [= Reverse Pointers]
 """
 from typing import List
 
@@ -26,8 +28,9 @@ class Solution:
             # n_last 는 stk에 들어있는 값들 중에서 n_mid 보다 작다는 조건을 만족하면서 가장 큰 값임이 보장됨
             # -> n_last 보다 작은 n_first 가 가질 수 있는 값의 범위를 최대화 가능
 
-            if not stk or num < stk[-1]:
-                stk.append(num)
+            # if not stk or num < stk[-1]:
+            #     stk.append(num)
+            stk.append(num)  # num = n_last_candidate
             print(f'num(=n_mid): {num} / stk: {stk} / n_last: {n_last}')
 
         return False
@@ -36,6 +39,7 @@ class Solution:
         """
         > Arg Space Trick
         > Using nums itself as the stack (bottom on the right end)
+        > Backward Pointers [= Reverse Pointers]
 
         시간 복잡도: O(n) - all the numbers on the "stk" list, can be popped at most once!
         공간 복잡도: O(n) - "stk" can be list with size = n
