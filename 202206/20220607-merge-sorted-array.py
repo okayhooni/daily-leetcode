@@ -1,7 +1,7 @@
 """
 https://leetcode.com/problems/merge-sorted-array/
 
-> Topic: Two Pointers (Double Pointer) / Backward Pointers [= Reverse Pointers]
+> Topic: Two Pointers (Double Pointer) / Backward Pointers [= Reverse Pointers] / Sorting
 > Follow up: Can you come up with an algorithm that runs in O(m + n) time?
 
 Hint 1) You can easily solve this problem if you simply think about two elements at a time rather than two arrays.
