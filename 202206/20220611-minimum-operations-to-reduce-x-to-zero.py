@@ -70,7 +70,7 @@ class Solution:
         else:
             return len(nums) - cnt
 
-def minOperationsWithNaiveBacktracking(self, nums: List[int], x: int) -> int:
+    def minOperationsWithNaiveBacktracking(self, nums: List[int], x: int) -> int:
         """
         Time Limit Exceeded -(with DP)-> Memory Limit Exceeded
         """

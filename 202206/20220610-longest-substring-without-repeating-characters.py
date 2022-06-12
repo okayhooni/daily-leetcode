@@ -38,12 +38,15 @@ class Solution:
         max_len = 0
 
         for idx, char in enumerate(s):
+            if (idx - cur_start_idx + 1) + (len(s) - idx) < max_len:
+                break
+
             prev_idx = used.get(char)
             if prev_idx is not None and cur_start_idx <= prev_idx:
                 cur_start_idx = prev_idx + 1
             else:
-                cur_len = idx - cur_start_idx + 1
-                max_len = max(max_len, cur_len)
+                # cur_len = idx - cur_start_idx + 1
+                max_len = max(max_len, idx - cur_start_idx + 1)
 
             used[char] = idx
 
