@@ -22,6 +22,9 @@ from collections import defaultdict
 
 class Solution:
     def maximumUniqueSubarray(self, nums: List[int]) -> int:
+        """
+        Time Complexity: O(N) where N is the length of nums
+        """
         seen_num_to_idx_map = {}
         cur_start_idx = 0
         max_unique_sum = cur_unique_sum = 0
@@ -40,6 +43,9 @@ class Solution:
         return max_unique_sum
 
     def maximumUniqueSubarray2(self, nums: List[int]) -> int:
+        """
+        Time Complexity: O(N) where N is the length of nums - all the numbers on the input can be popped at most once!
+        """
         total, best, left_idx = 0, 0, 0
         cnt_by_num_map = defaultdict(int)
         for cur_right_num in nums:
