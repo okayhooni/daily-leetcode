@@ -18,7 +18,7 @@ class Solution:
         forward: (0, 1) -> 0 / (1, 2) -> 1 / (2, 3) -> 2    [|\]
         backward: (4, 5) -> 5 / (3, 4) -> 4 / (2, 3) -> 3   [/|]
         """
-        dp = [val for val in triangle[-1]]
+        dp = triangle[-1][:]  # [val for val in triangle[-1]]
         # print(dp)
         for row_idx in range(len(triangle) - 2, -1, -1):
             for col_idx in range(len(triangle[row_idx])):
