@@ -3,6 +3,8 @@ https://leetcode.com/problems/triangle/
 
 > Topic: Dynamic Programming
 > Follow up: Could you do this using only O(n) extra space, where n is the total number of rows in the triangle?
+
+Ref) https://dev.to/seanpgallivan/solution-triangle-1lg0
 """
 from typing import List
 from functools import cache
