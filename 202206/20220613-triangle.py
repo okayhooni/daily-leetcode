@@ -4,6 +4,8 @@ https://leetcode.com/problems/triangle/
 > Topic: Dynamic Programming
 > Follow up: Could you do this using only O(n) extra space, where n is the total number of rows in the triangle?
 
+n = the total number of rows in the triangle = the number of columns on bottom line of the triangle(=max columns)
+
 Ref) https://dev.to/seanpgallivan/solution-triangle-1lg0
 """
 from typing import List
