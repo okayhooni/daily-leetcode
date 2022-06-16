@@ -1,7 +1,9 @@
 """
 https://leetcode.com/problems/palindromic-substrings/
 
-cf) https://leetcode.com/problems/longest-palindromic-substring/
+cf)
+- https://leetcode.com/problems/longest-palindromic-substring/
+- https://leetcode.com/problems/longest-palindromic-subsequence/
 
 > Topic: Dynamic Programming / Two Pointer & Sliding Window
 

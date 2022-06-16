@@ -1,7 +1,9 @@
 """
 https://leetcode.com/problems/longest-palindromic-substring/
 
-cf) https://leetcode.com/problems/palindromic-substrings/
+cf)
+- https://leetcode.com/problems/palindromic-substrings/
+- https://leetcode.com/problems/longest-palindromic-subsequence/
 
 > Topic: Dynamic Programming / Two Pointer & Sliding Window
 
@@ -11,6 +13,10 @@ Hint 3) Complexity based hint:
 If we use brute-force and check whether for every start and end position a substring is a palindrome,
 we have O(n^2) start - end pairs and O(n) palindromic checks.
 Can we reduce the time for palindromic checks to O(1) by reusing some previous computation.
+
+Ref)
+- https://github.com/azl397985856/leetcode/blob/master/problems/5.longest-palindromic-substring.md
+- https://github.com/azl397985856/leetcode/blob/master/problems/516.longest-palindromic-subsequence.md
 
 >>> max('z', 'aa')
 'z'
