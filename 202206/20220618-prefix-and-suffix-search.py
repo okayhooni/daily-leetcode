@@ -1,7 +1,7 @@
 """
 https://leetcode.com/problems/prefix-and-suffix-search/
 
-> Topic: Trie / Design
+> Topic: Trie / Design / String
 
 Hint 1) For a word like "test", consider "#test", "t#test", "st#test", "est#test", "test#test".
 Then if we have a query like prefix = "te", suffix = "t",
@@ -16,6 +16,8 @@ A trie is a type of data structure that uses a branching tree format where the n
 The difficulty in this case is that we're searching by both prefix and suffix,
 so we can create two trie structures, one for prefixes and one for suffixes (pTrie, sTrie).
 Then we can iterate through words and insert() each word into the two tries.
+
+Since we're iterating through words in index order, each node's vals array will be sorted in index order, as well.
 """
 from typing import List, Dict
 from pprint import pformat
