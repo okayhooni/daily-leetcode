@@ -8,7 +8,7 @@ Ref)
 - https://github.com/azl397985856/leetcode/blob/master/problems/215.kth-largest-element-in-an-array.md
 """
 from typing import List
-from heapq import heappush, heappop, heapify, heapreplace  # , nlargest
+from heapq import heappush, heappop, heapify, heapreplace, heappushpop  # , nlargest
 
 
 class Solution:
@@ -30,6 +30,14 @@ class Solution:
             heappush(heap, num)
             if len(heap) > k:
                 heappop(heap)
+        return heap[0]
+
+    def findKthLargestFinal(self, nums: List[int], k: int) -> int:
+        heap = nums[:k]
+        heapify(heap)
+        for idx in range(k, len(nums)):
+            heappushpop(heap, nums[idx])
+
         return heap[0]
 
 
