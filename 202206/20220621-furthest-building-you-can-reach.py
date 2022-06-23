@@ -1,6 +1,8 @@
 """
 https://leetcode.com/problems/furthest-building-you-can-reach/
 
+cf) https://leetcode.com/problems/course-schedule-iii/
+
 > Topic: Heap (Priority Queue) / Greedy Algorithm
 
 Hint 1) Assume the problem is to check whether you can reach the last building or not.
