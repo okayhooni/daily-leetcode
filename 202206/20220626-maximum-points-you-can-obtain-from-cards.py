@@ -17,6 +17,10 @@ from typing import *
 
 class Solution:
     def maxScore(self, card_points: List[int], k: int) -> int:
+        """
+        Time Complexity: O(K)
+        Space Complexity: O(1)
+        """
         if len(card_points) == k:
             return sum(card_points)
 
@@ -37,6 +41,10 @@ class Solution:
         return max_score
 
     def maxScoreBrute(self, card_points: List[int], k: int) -> int:
+        """
+        Time Complexity: O(K)
+        Space Complexity: O(N)
+        """
         left_to_right_prefix_sum, right_to_left_prefix_sum = card_points[:], card_points[:]
         for idx in range(1, len(card_points)):
             left_to_right_prefix_sum[idx] += left_to_right_prefix_sum[idx - 1]
@@ -64,6 +72,10 @@ class Solution:
         return max_score
 
     def maxScoreRef(self, card_points: List[int], k: int) -> int:
+        """
+        Time Complexity: O(K)
+        Space Complexity: O(1)
+        """
         best = total = sum(card_points[:k])
         for i in range(k - 1, -1, -1):
             total += card_points[i + len(card_points) - k] - card_points[i]
