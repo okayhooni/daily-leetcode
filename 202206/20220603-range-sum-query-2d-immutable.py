@@ -2,6 +2,12 @@
 https://leetcode.com/problems/range-sum-query-2d-immutable/
 
 > Topic: Prefix Sum (cumulative sum, inclusive scan)
+
+cf) https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/
+
+ref)
+- https://dev.to/seanpgallivan/solution-range-sum-query-2d-immutable-9ic
+- https://dev.to/theabbie/range-sum-query-2d-immutable-hna
 """
 from typing import List
 from itertools import accumulate
