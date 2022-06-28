@@ -1,7 +1,7 @@
 """
 https://leetcode.com/problems/minimum-deletions-to-make-character-frequencies-unique/
 
-> Topic: Math / Greedy Algorithm / Sorting
+> Topic: Math / Greedy Algorithm / Sorting ~ (Actually, sorting is not needed on this problem)
 
 Hint)
 - As we can only delete characters,
@@ -35,9 +35,31 @@ class Solution:
 
         return deletion_cnt
 
+    def minDeletions103msSol(self, s: str) -> int:
+        # calculate frequencies
+        freq = [0] * 26
+        for i in range(26):
+            freq[i] = s.count(chr(ord('a') + i))
+        delete_count = 0
+        seen_frequencies = set()
+
+        print(freq)
+        for i in range(26):
+            print(chr(ord('a') + i), freq[i])
+            if freq[i] in seen_frequencies:
+                while freq[i] > 0 and freq[i] in seen_frequencies:
+                    delete_count += 1
+                    freq[i] -= 1
+            print('->', freq[i])
+            seen_frequencies.add(freq[i])
+
+        return delete_count
+
 
 if __name__ == '__main__':
     sol = Solution()
     assert sol.minDeletions("aab") == 0
     assert sol.minDeletions("aaabbbcc") == 2
     assert sol.minDeletions("ceabaacb") == 2
+    assert sol.minDeletions103msSol("ceabaacb") == 2
+    assert sol.minDeletions103msSol("cadbddcb") == 2
