@@ -17,7 +17,7 @@ class Solution:
     def minDeletions(self, s: str) -> int:
         """
         Time Complexity: O(N)
-        Auxiliary Space Complexity: O(N)
+        Auxiliary Space Complexity: O(N) ~ char_nums_by_cnt
         """
         char_counter = Counter(s)
 
@@ -32,6 +32,24 @@ class Solution:
             if char_nums_by_cnt[cnt] > 1:
                 deletion_cnt += char_nums_by_cnt[cnt] - 1
                 char_nums_by_cnt[cnt - 1] += char_nums_by_cnt[cnt] - 1
+
+        return deletion_cnt
+
+    def minDeletions2(self, s: str) -> int:
+        """
+        Time Complexity: O(N)
+        Auxiliary Space Complexity: O(1) ~ O(26)
+        """
+        char_counter = Counter(s)
+        seen_freq = set()
+        deletion_cnt = 0
+
+        for cnt in char_counter.values():
+            while cnt > 0 and cnt in seen_freq:
+                cnt -= 1
+                deletion_cnt += 1
+
+            seen_freq.add(cnt)
 
         return deletion_cnt
 
