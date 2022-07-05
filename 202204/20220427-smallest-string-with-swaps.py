@@ -6,6 +6,10 @@ https://leetcode.com/problems/smallest-string-with-swaps/
 - We can sort each connected component alone to get the lexicographically minimum string.
 
 > Topic: Union-Find
+
+cf)
+- https://leetcode.com/problems/critical-connections-in-a-network/
+- https://leetcode.com/problems/longest-consecutive-sequence/
 """
 from typing import List, Dict, Set
 import heapq
@@ -24,6 +28,7 @@ class Solution:
             if self.cluster_root_id[idx] != idx:
                 # return self.find(self.cluster_root_id[idx])
                 self.cluster_root_id[idx] = self.find(self.cluster_root_id[idx])
+                # union-find approach and/or dynamic programming (DP) approach;
 
             return self.cluster_root_id[idx]
 

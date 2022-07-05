@@ -15,7 +15,9 @@ and for each node we keep track of the earliest node that we can circle back aro
 By doing this, we can identify whether a given edge is a bridge,
 because the far node doesn't lead back to any other earlier node.
 
-cf) https://leetcode.com/problems/smallest-string-with-swaps/
+cf)
+- https://leetcode.com/problems/smallest-string-with-swaps/
+- https://leetcode.com/problems/longest-consecutive-sequence/
 """
 from typing import List
 from collections import defaultdict
